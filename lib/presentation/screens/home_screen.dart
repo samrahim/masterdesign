@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     return SafeArea(
       child: DefaultTabController(
-        length: 3,
+        length: 7,
         child: Scaffold(
             appBar: AppBar(
               leading: const Icon(Icons.menu, color: Colors.black, size: 32),
