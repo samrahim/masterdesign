@@ -73,7 +73,6 @@ class _HomeScreenState extends State<HomeScreen>
                     isScrollable: true,
                     labelColor: Colors.red,
                     onTap: (value) {
-                      print(value);
                       BlocProvider.of<NewsBloc>(context).add(GetAllNews(value));
                     },
                     tabs: const [

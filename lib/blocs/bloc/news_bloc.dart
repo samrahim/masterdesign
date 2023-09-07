@@ -8,23 +8,23 @@ part 'news_state.dart';
 
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   Repository repository;
-  List<String> categories = [
-    'business',
-    'entertainment',
-    'general',
-    'health',
-    'science',
-    'sports',
-    'technology'
-  ];
+  Map<int, String> categories = {
+    0: 'business',
+    1: 'entertainment',
+    2: 'general',
+    3: 'health',
+    4: 'science',
+    5: 'sports',
+    6: 'technology'
+  };
+
   int ind = 0;
   NewsBloc(this.repository) : super(NewsLoading()) {
-    on<NewsEvent>((event, emit) async {
-      if (event is GetAllNews) {
-        ind = event.index;
-        List<NewsModel> news = await repository.getNews(categories[ind]);
-        emit(NewsLoaded(news: news));
-      }
+    on<GetAllNews>((event, emit) async {
+      ind = event.index;
+      List<NewsModel> news =
+          await repository.getNews(categories[ind].toString());
+      emit(NewsLoaded(news: news));
     });
   }
 }

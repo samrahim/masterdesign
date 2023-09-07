@@ -9,6 +9,7 @@ class Repository {
   Future<List<NewsModel>> getNews(String category) async {
     Map mp = await webService.getMap(category);
     List body = mp['articles'];
+
     news = body.map((e) => NewsModel.fromJson(e)).toList();
     return news;
   }
