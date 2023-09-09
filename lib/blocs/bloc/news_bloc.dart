@@ -19,12 +19,20 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   };
 
   int ind = 0;
+  Map<int, dynamic> map = {};
   NewsBloc(this.repository) : super(NewsLoading()) {
     on<GetAllNews>((event, emit) async {
       ind = event.index;
-      List<NewsModel> news =
-          await repository.getNews(categories[ind].toString());
-      emit(NewsLoaded(news: news));
+      if (map.containsKey(ind)) {
+        print("we have it ++++++++++++++++++++");
+        List<NewsModel> news = map[ind];
+        emit(NewsLoaded(news: news));
+      } else if (!map.containsKey(ind)) {
+        List<NewsModel> news =
+            await repository.getNews(categories[ind].toString());
+        map.addAll({ind: news});
+        emit(NewsLoaded(news: news));
+      }
     });
   }
 }

@@ -73,13 +73,13 @@ class _HomeScreenState extends State<HomeScreen>
                           return TabBarView(
                             controller: tabController,
                             children: const [
-                              Text("data1"),
-                              Text("data2"),
-                              Text("data3"),
-                              Text("data4"),
-                              Text("data5"),
-                              Text("data6"),
-                              Text("data7"),
+                              Center(child: CircularProgressIndicator()),
+                              Center(child: CircularProgressIndicator()),
+                              Center(child: CircularProgressIndicator()),
+                              Center(child: CircularProgressIndicator()),
+                              Center(child: CircularProgressIndicator()),
+                              Center(child: CircularProgressIndicator()),
+                              Center(child: CircularProgressIndicator()),
                             ],
                           );
                         }

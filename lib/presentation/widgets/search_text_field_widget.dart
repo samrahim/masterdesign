@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CostumeSearchField extends StatelessWidget {
   CostumeSearchField({super.key, required this.height, required this.width});
   double height;

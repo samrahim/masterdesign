@@ -7,6 +7,7 @@ class Repository {
   List<NewsModel> news = [];
 
   Future<List<NewsModel>> getNews(String category) async {
+    print("get News function start ==================$category");
     Map mp = await webService.getMap(category);
     List body = mp['articles'];
 
